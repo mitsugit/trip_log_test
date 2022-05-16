@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <p>
+            <a href="https://www.google.co.jp/maps/"
+            target="_blank" rel="noopener noreferrer"
+            class="button">Google Maps</a>
+        </p>
+        <form action="/update" method="POST">
+            <input type="hidden" name="id" value="{{ data.id }}">
+            <label>
+                タイトル：<input type="text" name="title" value="{{ data.title }}">
+            </label>
+            <p></p>
+            <label>
+                本文：<br>
+                <textarea name="content" rows="5" cols="50">{{ data.content }}</textarea>
+            </label>
+            <p></p>
+            <div>
+                <label>
+                    緯度：<input type="text" name="latitude" value="{{ data.latitude }}">
+                </label>
+                <label>
+                    経度：<input type="text" name="longitude" value="{{ data.longitude }}">
+                </label>
+            </div>
+            <p></p>
+            <button type="submit">送信</button>
+        </form>
+        <p><a href="/">一覧画面に戻る</a></p>
+    </body>
+</html>

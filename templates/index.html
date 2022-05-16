@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+        <!--flashメッセージ-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="background-color: lightblue;">
+                    <b>{{ message }}</b></p>
+                {% endfor %}
+            {%  endif %}
+        {% endwith%}
+
+    {{ title }}
+
+        <table>
+            <tr>
+                <th>タイトル</th>
+                <th>作成日</th>
+            </tr>
+            {% for i in all_data %}
+            <tr>
+                <td><a href="/detail?id={{ i.id }}">{{ i.title }}</a></td>
+                <td>{{ i.create_date.date() }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<p><a href="/new" class="button">新規作成</a></p>
+</body>
+</html>

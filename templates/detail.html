@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Detail</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <h2>【 {{ data.title }} 】</h2>
+        <p>{{ data.content}}</p>
+
+        <div class="map">
+            <p>{{ map | safe }}</p>
+        </div>
+
+        <a href="/edit/{{ data.id }}"  class="button">編集</a>
+        <a href="/delete/{{ data.id }}"  class="delete_button">削除</a>
+
+        <p><a href="/">一覧画面に戻る</a></p>
+
+    </body>
+</html>
